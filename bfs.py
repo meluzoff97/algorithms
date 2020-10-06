@@ -1,13 +1,14 @@
 def bfs(graph, x, y):
-  queue = graph[x][:]
+  queue = [x]
   checked = []
   while queue:
     v = queue.pop(0)
     if v == y:
       return True
     else:
-      queue.extend(graph[v])
-      checked.append(v)
+      if not v in checked:
+        queue.extend(graph[v])
+        checked.append(v)
   return False
 
 #simple_graph = {'A' : ['B', 'C'],
